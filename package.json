@@ -1,5 +1,5 @@
 {
-  "name": "gulp-jade-find-affected",
+  "name": "gulp-pug-find-affected",
   "version": "0.2.2",
   "description": "Find affected files when changing jade files that are dependencies in other files and pass them through the stream for compilation",
   "keywords": [
