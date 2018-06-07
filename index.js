@@ -4,7 +4,8 @@ var vfs = require('vinyl-fs');
 var fs = require('fs');
 var glob = require('glob');
 var gs = require('glob-stream');
-var gutil = require('gulp-util');
+var log = require('fancy-log');
+var colors = require('ansi-colors');
 var _ = require('lodash');
 var path = require('path');
 var through = require('through2');
@@ -55,8 +56,8 @@ function findAffectedRecurse(filePath, filesBase, cb) {
 }
 
 function logEvent(filepathAffected, filePathChanged) {
-  var msg = [gutil.colors.magenta(filePathChanged), 'was affected by the change of', gutil.colors.magenta(filepathAffected), 'and will be compiled.'];
-  gutil.log.apply(gutil, msg);
+  var msg = [colors.magenta(filePathChanged), 'was affected by the change of', colors.magenta(filepathAffected), 'and will be compiled.'];
+  log(msg.join(" "));
 }
 
 module.exports = function(){
@@ -64,7 +65,7 @@ module.exports = function(){
   function FindAffected(file, enc, cb){
     foundFiles = [];
     compiledFilePaths = [];
-    
+
     var base = path.resolve(file.cwd, file.base);
     var that = this;
 
