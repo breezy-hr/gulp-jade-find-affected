@@ -73,7 +73,7 @@ module.exports = function(){
     findAffectedRecurse(file, base, function(affectedFiles) {
       // console.log('affectedFiles', _.map(affectedFiles, 'path'));
       // console.log(_.map(foundFiles, 'path'));
-      _.each(affectedFiles, function(affectedFile) {
+      _.each(foundFiles, function(affectedFile) {
         if(_.includes(compiledFilePaths, affectedFile.path)) return;
         compiledFilePaths.push(affectedFile.path);
         that.push(new File({
